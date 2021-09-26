@@ -16,10 +16,12 @@ systemctl enable nginx.service
 rm /var/www/html/index*.html
 touch /var/www/html/index.html
 
+name=${$REPLY:-$(whoami)}
+
 printf "
 <html>
 <head>
-	<title>Welcome, $REPLY!</title>
+	<title>Welcome, $name!</title>
 	<style>
 		body {
 			display: grid;
@@ -31,7 +33,7 @@ printf "
 	</style>
 </head>
 <body>
-	<h1>$REPLY</h1>
+	<h1>$name</h1>
 </body>
 </html>
 " > /var/www/html/index.html
