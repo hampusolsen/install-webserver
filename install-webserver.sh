@@ -16,7 +16,7 @@ systemctl enable nginx.service
 rm /var/www/html/index*.html
 touch /var/www/html/index.html
 
-name=${$REPLY:-$(whoami)}
+name=${REPLY:-$(whoami)}
 
 printf "
 <html>
