@@ -5,8 +5,6 @@ if [ "$EUID" -ne 0 ]; then
 	exit
 fi
 
-read -p "Please input your name: "
-
 apt update -y
 apt install nginx -y
 
@@ -16,7 +14,7 @@ systemctl enable nginx.service
 rm /var/www/html/index*.html
 touch /var/www/html/index.html
 
-name=${REPLY:-$(whoami)}
+name=$(whoami)
 
 printf "
 <html>
